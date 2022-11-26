@@ -1380,7 +1380,6 @@ render {
     depth { 16 }
     rr_depth { 5 }
     rr_threshold { 0.95 }
-    display { true }
   }
   shapes {
     @shape_0,
