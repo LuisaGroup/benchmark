@@ -1033,7 +1033,6 @@ Camera camera : Pinhole {
   }
   film : Color {
     resolution { 1920, 1080 }
-    clamp { 16384 }
   }
   file { "output.exr" }
 }
@@ -1041,13 +1040,12 @@ Camera camera : Pinhole {
 render {
   cameras { @camera }
   spectrum : sRGB {}
-  shadow_terminator { 0.01 }
+  shadow_terminator { 0.001 }
   integrator : WavePath {
     sampler : Independent {}
     depth { 16 }
     rr_depth { 5 }
     rr_threshold { 0.95 }
-    display { true }
   }
   shapes {
     @shape_0,

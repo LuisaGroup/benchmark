@@ -53,7 +53,7 @@
 	<bsdf type="twosided" id="DarkPlasticBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.2" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
@@ -63,7 +63,7 @@
 	<bsdf type="twosided" id="PinkLeatherBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.4" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
@@ -73,7 +73,7 @@
 	<bsdf type="twosided" id="LeatherBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.4" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
@@ -83,7 +83,7 @@
 	<bsdf type="twosided" id="RedLeatherBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.4" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
@@ -93,7 +93,7 @@
 	<bsdf type="twosided" id="BrightPinkLeatherBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.4" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
