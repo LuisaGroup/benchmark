@@ -210,7 +210,7 @@
 		<bsdf type="roughconductor">
 			<rgb name="specular_reflectance" value="1, 1, 1" />
 			<string name="material" value="Al" />
-			<float name="alpha" value="0.001" />
+			<float name="alpha" value="0.0001" />
 		</bsdf>
 	</bsdf>
 	<bsdf type="twosided" id="FloorBSDF">
@@ -279,7 +279,7 @@
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
-			<float name="alpha" value="0.001" />
+			<float name="alpha" value="0.0001" />
 			<rgb name="diffuse_reflectance" value="0.612066, 0.612066, 0.612066" />
 		</bsdf>
 	</bsdf>

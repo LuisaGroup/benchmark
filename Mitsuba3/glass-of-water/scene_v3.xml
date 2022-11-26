@@ -1,198 +1,202 @@
 <scene version="3.0.0">
-	<default name="integrator" value="path" />
-	<default name="spp" value="64" />
-	<default name="resx" value="1280" />
-	<default name="resy" value="720" />
-	<default name="max_depth" value="33" />
-	<default name="rr_depth" value="5" />
-	<integrator type="$integrator">
-		<integer name="max_depth" value="$max_depth" />
-		<integer name="rr_depth" value="$rr_depth" />
-	</integrator>
-	<sensor type="perspective">
-		<float name="fov" value="35" />
-		<transform name="to_world">
-			<matrix value="-0.999993 -5.92355e-005 0.00373545 -0.0893585 3.638e-012 0.999874 0.0158556 2.69412 -0.00373592 0.0158555 -0.999867 25.6726 0 0 0 1" />
-		</transform>
-		<sampler type="independent">
-			<integer name="sample_count" value="$spp" />
-		</sampler>
-		<film type="hdrfilm">
-			<integer name="width" value="$resx" />
-			<integer name="height" value="$resy" />
-			<string name="file_format" value="openexr" />
-			<string name="pixel_format" value="rgb" />
-			<rfilter type="box">
-				<float name="radius" value="0.5" />
-			</rfilter>
-		</film>
-	</sensor>
-	<bsdf type="twosided" id="BackdropBSDF">
-		<bsdf type="roughconductor">
-			<float name="alpha" value="0.1" />
-			<string name="distribution" value="ggx" />
-			<rgb name="specular_reflectance" value="0.578596, 0.578596, 0.578596" />
-			<string name="material" value="V_palik" />
-			<!-- <rgb name="eta" value="4.27751, 3.51315, 2.76113" />
-			<rgb name="k" value="3.49118, 2.88936, 3.1117" /> -->
-		</bsdf>
-	</bsdf>
-	<bsdf type="twosided" id="FloorBSDF">
-		<bsdf type="roughconductor">
-			<float name="alpha" value="0.1" />
-			<string name="distribution" value="ggx" />
-			<rgb name="specular_reflectance" value="0.578596, 0.578596, 0.578596" />
-			<string name="material" value="Al" />
-			<!-- <rgb name="eta" value="1.65746, 0.880369, 0.521229" />
-			<rgb name="k" value="9.22387, 6.26952, 4.837" /> -->
-		</bsdf>
-	</bsdf>
-	<bsdf type="dielectric" id="WaterAirBSDF">
-		<float name="int_ior" value="1.33" />
-		<float name="ext_ior" value="1" />
-	</bsdf>
-	<bsdf type="dielectric" id="IceAirBSDF">
-		<float name="int_ior" value="1.31" />
-		<float name="ext_ior" value="1" />
-	</bsdf>
-	<bsdf type="dielectric" id="GlassBSDF">
-		<float name="int_ior" value="1.5" />
-		<float name="ext_ior" value="1" />
-	</bsdf>
-	<bsdf type="dielectric" id="AirIceBSDF">
-		<float name="int_ior" value="0.763" />
-		<float name="ext_ior" value="1" />
-	</bsdf>
-	<shape type="obj" id="WaterAir_0001">
-		<string name="filename" value="models/Mesh008.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="WaterAirBSDF" />
-	</shape>
-	<shape type="obj" id="WaterAir_0002">
-		<string name="filename" value="models/Mesh005.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="WaterAirBSDF" />
-	</shape>
-	<shape type="obj" id="IceAir_0001">
-		<string name="filename" value="models/Mesh004.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="IceAirBSDF" />
-	</shape>
-	<shape type="obj" id="AirIce_0001">
-		<string name="filename" value="models/Mesh003.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<boolean name="face_normals" value="true" />
-		<ref id="AirIceBSDF" />
-	</shape>
-	<shape type="obj" id="IceAir_0002">
-		<string name="filename" value="models/Mesh010.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="IceAirBSDF" />
-	</shape>
-	<shape type="obj" id="AirIce_0002">
-		<string name="filename" value="models/Mesh009.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<boolean name="face_normals" value="true" />
-		<ref id="AirIceBSDF" />
-	</shape>
-	<shape type="obj" id="AirIce_0003">
-		<string name="filename" value="models/Mesh012.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<boolean name="face_normals" value="true" />
-		<ref id="AirIceBSDF" />
-	</shape>
-	<shape type="obj" id="IceAir_0003">
-		<string name="filename" value="models/Mesh014.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="IceAirBSDF" />
-	</shape>
-	<shape type="obj" id="AirIce_0004">
-		<string name="filename" value="models/Mesh015.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<boolean name="face_normals" value="true" />
-		<ref id="AirIceBSDF" />
-	</shape>
-	<shape type="obj" id="IceAir_0004">
-		<string name="filename" value="models/Mesh006.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="IceAirBSDF" />
-	</shape>
-	<shape type="obj" id="AirIce_0005">
-		<string name="filename" value="models/Mesh002.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<boolean name="face_normals" value="true" />
-		<ref id="AirIceBSDF" />
-	</shape>
-	<shape type="obj" id="IceAir_0005">
-		<string name="filename" value="models/Mesh001.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="IceAirBSDF" />
-	</shape>
-	<shape type="obj" id="Backdrop">
-		<string name="filename" value="models/Mesh007.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<boolean name="face_normals" value="true" />
-		<ref id="BackdropBSDF" />
-	</shape>
-	<shape type="obj" id="Floor">
-		<string name="filename" value="models/Mesh011.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<boolean name="face_normals" value="true" />
-		<ref id="FloorBSDF" />
-	</shape>
-	<shape type="obj" id="Glass">
-		<string name="filename" value="models/Mesh013.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="GlassBSDF" />
-	</shape>
-	<shape type="obj" id="WaterAir_0003">
-		<string name="filename" value="models/Mesh000.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="WaterAirBSDF" />
-	</shape>
-	<shape type="rectangle">
-		<transform name="to_world">
-			<matrix value="5 4.86887e-007 1.77975e-007 -0.0384822 4.86887e-007 -3.82133 -3.22451 10.4809 -1.77975e-007 3.22451 -3.82133 26.1925 0 0 0 1" />
-		</transform>
-		<bsdf type="twosided">
-			<bsdf type="diffuse">
-				<rgb name="reflectance" value="0, 0, 0" />
-			</bsdf>
-		</bsdf>
-		<emitter type="area">
-			<rgb name="radiance" value="15.9155, 27.0563, 31.831" />
-		</emitter>
-	</shape>
+    <default name="integrator" value="path"/>
+    <default name="spp" value="64"/>
+    <default name="resx" value="1280"/>
+    <default name="resy" value="720"/>
+    <default name="max_depth" value="33"/>
+    <default name="rr_depth" value="5"/>
+    <integrator type="$integrator">
+        <integer name="max_depth" value="$max_depth"/>
+        <integer name="rr_depth" value="$rr_depth"/>
+    </integrator>
+    <sensor type="perspective">
+        <float name="fov" value="35"/>
+        <transform name="to_world">
+            <matrix value="-0.999993 -5.92355e-005 0.00373545 -0.0893585 3.638e-012 0.999874 0.0158556 2.69412 -0.00373592 0.0158555 -0.999867 25.6726 0 0 0 1"/>
+        </transform>
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+        <film type="hdrfilm">
+            <integer name="width" value="$resx"/>
+            <integer name="height" value="$resy"/>
+            <string name="file_format" value="openexr"/>
+            <string name="pixel_format" value="rgb"/>
+            <rfilter type="box">
+                <float name="radius" value="0.5"/>
+            </rfilter>
+        </film>
+    </sensor>
+    <bsdf type="twosided" id="BackdropBSDF">
+        <bsdf type="roughconductor">
+            <float name="alpha" value="0.1"/>
+            <string name="distribution" value="ggx"/>
+            <rgb name="specular_reflectance" value="0.578596, 0.578596, 0.578596"/>
+            <string name="material" value="V_palik"/>
+            <!-- <rgb name="eta" value="4.27751, 3.51315, 2.76113" />
+            <rgb name="k" value="3.49118, 2.88936, 3.1117" /> -->
+        </bsdf>
+    </bsdf>
+    <bsdf type="twosided" id="FloorBSDF">
+        <bsdf type="roughconductor">
+            <float name="alpha" value="0.1"/>
+            <string name="distribution" value="ggx"/>
+            <rgb name="specular_reflectance" value="0.578596, 0.578596, 0.578596"/>
+            <string name="material" value="Al"/>
+            <!-- <rgb name="eta" value="1.65746, 0.880369, 0.521229" />
+            <rgb name="k" value="9.22387, 6.26952, 4.837" /> -->
+        </bsdf>
+    </bsdf>
+    <bsdf type="roughdielectric" id="WaterAirBSDF">
+        <float name="int_ior" value="1.33"/>
+        <float name="ext_ior" value="1"/>
+        <float name="alpha" value="0.0001"/>
+    </bsdf>
+    <bsdf type="roughdielectric" id="IceAirBSDF">
+        <float name="int_ior" value="1.31"/>
+        <float name="ext_ior" value="1"/>
+        <float name="alpha" value="0.0001"/>
+    </bsdf>
+    <bsdf type="roughdielectric" id="GlassBSDF">
+        <float name="int_ior" value="1.5"/>
+        <float name="ext_ior" value="1"/>
+        <float name="alpha" value="0.0001"/>
+    </bsdf>
+    <bsdf type="roughdielectric" id="AirIceBSDF">
+        <float name="int_ior" value="0.763"/>
+        <float name="ext_ior" value="1"/>
+        <float name="alpha" value="0.0001"/>
+    </bsdf>
+    <shape type="obj" id="WaterAir_0001">
+        <string name="filename" value="models/Mesh008.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="WaterAirBSDF"/>
+    </shape>
+    <shape type="obj" id="WaterAir_0002">
+        <string name="filename" value="models/Mesh005.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="WaterAirBSDF"/>
+    </shape>
+    <shape type="obj" id="IceAir_0001">
+        <string name="filename" value="models/Mesh004.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="IceAirBSDF"/>
+    </shape>
+    <shape type="obj" id="AirIce_0001">
+        <string name="filename" value="models/Mesh003.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <boolean name="face_normals" value="true"/>
+        <ref id="AirIceBSDF"/>
+    </shape>
+    <shape type="obj" id="IceAir_0002">
+        <string name="filename" value="models/Mesh010.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="IceAirBSDF"/>
+    </shape>
+    <shape type="obj" id="AirIce_0002">
+        <string name="filename" value="models/Mesh009.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <boolean name="face_normals" value="true"/>
+        <ref id="AirIceBSDF"/>
+    </shape>
+    <shape type="obj" id="AirIce_0003">
+        <string name="filename" value="models/Mesh012.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <boolean name="face_normals" value="true"/>
+        <ref id="AirIceBSDF"/>
+    </shape>
+    <shape type="obj" id="IceAir_0003">
+        <string name="filename" value="models/Mesh014.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="IceAirBSDF"/>
+    </shape>
+    <shape type="obj" id="AirIce_0004">
+        <string name="filename" value="models/Mesh015.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <boolean name="face_normals" value="true"/>
+        <ref id="AirIceBSDF"/>
+    </shape>
+    <shape type="obj" id="IceAir_0004">
+        <string name="filename" value="models/Mesh006.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="IceAirBSDF"/>
+    </shape>
+    <shape type="obj" id="AirIce_0005">
+        <string name="filename" value="models/Mesh002.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <boolean name="face_normals" value="true"/>
+        <ref id="AirIceBSDF"/>
+    </shape>
+    <shape type="obj" id="IceAir_0005">
+        <string name="filename" value="models/Mesh001.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="IceAirBSDF"/>
+    </shape>
+    <shape type="obj" id="Backdrop">
+        <string name="filename" value="models/Mesh007.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <boolean name="face_normals" value="true"/>
+        <ref id="BackdropBSDF"/>
+    </shape>
+    <shape type="obj" id="Floor">
+        <string name="filename" value="models/Mesh011.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <boolean name="face_normals" value="true"/>
+        <ref id="FloorBSDF"/>
+    </shape>
+    <shape type="obj" id="Glass">
+        <string name="filename" value="models/Mesh013.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="GlassBSDF"/>
+    </shape>
+    <shape type="obj" id="WaterAir_0003">
+        <string name="filename" value="models/Mesh000.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="WaterAirBSDF"/>
+    </shape>
+    <shape type="rectangle">
+        <transform name="to_world">
+            <matrix value="5 4.86887e-007 1.77975e-007 -0.0384822 4.86887e-007 -3.82133 -3.22451 10.4809 -1.77975e-007 3.22451 -3.82133 26.1925 0 0 0 1"/>
+        </transform>
+        <bsdf type="twosided">
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0, 0, 0"/>
+            </bsdf>
+        </bsdf>
+        <emitter type="area">
+            <rgb name="radiance" value="15.9155, 27.0563, 31.831"/>
+        </emitter>
+    </shape>
 </scene>

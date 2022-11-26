@@ -122,7 +122,7 @@
     <bsdf type="roughdielectric" id="GlassBSDF">
         <float name="int_ior" value="1.5"/>
         <float name="ext_ior" value="1"/>
-        <float name="alpha" value="0.001"/>
+        <float name="alpha" value="0.0001"/>
     </bsdf>
     <bsdf type="twosided" id="MagnoliaPaintBSDF">
         <bsdf type="roughplastic">
@@ -177,7 +177,7 @@
         <bsdf type="roughconductor">
             <rgb name="specular_reflectance" value="0.578596, 0.578596, 0.578596"/>
             <string name="material" value="Al"/>
-            <float name="alpha" value="0.001"/>
+            <float name="alpha" value="0.0001"/>
             <!-- <rgb name="eta" value="1.65746, 0.880369, 0.521229" />
 			<rgb name="k" value="9.22387, 6.26952, 4.837" /> -->
         </bsdf>
@@ -196,7 +196,7 @@
         <bsdf type="roughconductor">
             <rgb name="specular_reflectance" value="1, 1, 1"/>
             <string name="material" value="Au"/>
-            <float name="alpha" value="0.001"/>
+            <float name="alpha" value="0.0001"/>
             <!-- <rgb name="eta" value="0.143119, 0.374957, 1.44248" />
 			<rgb name="k" value="3.98316, 2.38572, 1.60322" /> -->
         </bsdf>
@@ -220,7 +220,7 @@
         <bsdf type="roughconductor">
             <rgb name="specular_reflectance" value="1, 1, 1"/>
             <string name="material" value="Li"/>
-            <float name="alpha" value="0.001"/>
+            <float name="alpha" value="0.0001"/>
             <!-- <rgb name="eta" value="0.265787, 0.19561, 0.22092" />
 			<rgb name="k" value="3.54017, 2.31113, 1.66859" /> -->
         </bsdf>

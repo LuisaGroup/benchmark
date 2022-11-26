@@ -127,7 +127,7 @@
 	</bsdf>
 	<bsdf type="twosided" id="FireplaceGlassBSDF">
 		<bsdf type="roughplastic">
-			<float name="alpha" value="0.001" />
+			<float name="alpha" value="0.0001" />
 			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
