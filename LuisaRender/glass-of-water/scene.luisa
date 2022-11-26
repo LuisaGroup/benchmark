@@ -6,7 +6,6 @@ Surface mat_Backdrop : Metal {
   }
   Kd : Constant {
     v { 0.578596, 0.578596, 0.578596 }
-    semantic { "albedo" }
   }
 }
 
@@ -17,18 +16,15 @@ Surface mat_Floor : Metal {
   }
   Kd : Constant {
     v { 0.578596, 0.578596, 0.578596 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_WaterAir : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.33 }
@@ -41,11 +37,9 @@ Surface mat_WaterAir : Glass {
 Surface mat_IceAir : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.31 }
@@ -58,11 +52,9 @@ Surface mat_IceAir : Glass {
 Surface mat_Glass : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -75,11 +67,9 @@ Surface mat_Glass : Glass {
 Surface mat_AirIce : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 0.763 }
@@ -305,7 +295,6 @@ Shape shape_16 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 15.915493965148926, 27.056339263916016, 31.83098793029785 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {

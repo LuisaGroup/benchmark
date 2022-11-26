@@ -8,7 +8,6 @@
 	<integrator type="$integrator">
 		<integer name="max_depth" value="$max_depth" />
 		<integer name="rr_depth" value="$rr_depth" />
-		<integer name="samples_per_pass" value="16" />
 	</integrator>
 	<sensor type="perspective">
 		<float name="fov" value="35" />
@@ -23,7 +22,9 @@
 			<integer name="height" value="$resy" />
 			<string name="file_format" value="openexr" />
 			<string name="pixel_format" value="rgb" />
-			<rfilter type="gaussian" />
+			<rfilter type="box">
+				<float name="radius" value="0.5" />
+			</rfilter>
 		</film>
 	</sensor>
 	<bsdf type="twosided" id="BackdropBSDF">

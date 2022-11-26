@@ -2,7 +2,6 @@
 Surface mat_Backdrop : Matte {
   Kd : Constant {
     v { 0.10000000149011612, 0.10000000149011612, 0.10000000149011612 }
-    semantic { "albedo" }
   }
 }
 
@@ -13,7 +12,6 @@ Surface mat_RoughAluminium : Metal {
   }
   Kd : Constant {
     v { 0.5785959959030151, 0.5785959959030151, 0.5785959959030151 }
-    semantic { "albedo" }
   }
 }
 
@@ -24,18 +22,15 @@ Surface mat_RoughSteel : Metal {
   }
   Kd : Constant {
     v { 0.2, 0.2, 0.2 }
-    semantic { "albedo" }
   }
 }
 
-Surface mat_DarkPlastic : Substrate {
+Surface mat_DarkPlastic : Plastic {
   Kd : Constant {
     v { 0.009999999776482582, 0.009999999776482582, 0.009999999776482582 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -45,14 +40,12 @@ Surface mat_DarkPlastic : Substrate {
   }
 }
 
-Surface mat_PinkLeather : Substrate {
+Surface mat_PinkLeather : Plastic {
   Kd : Constant {
     v { 0.25600001215934753, 0.013000000268220901, 0.07999999821186066 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -62,14 +55,12 @@ Surface mat_PinkLeather : Substrate {
   }
 }
 
-Surface mat_Leather : Substrate {
+Surface mat_Leather : Plastic {
   Kd : Constant {
     v { 0.03400000184774399, 0.014000000432133675, 0.00800000037997961 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -79,14 +70,12 @@ Surface mat_Leather : Substrate {
   }
 }
 
-Surface mat_RedLeather : Substrate {
+Surface mat_RedLeather : Plastic {
   Kd : Constant {
     v { 0.16300000250339508, 0.029999999329447746, 0.03700000047683716 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -96,14 +85,12 @@ Surface mat_RedLeather : Substrate {
   }
 }
 
-Surface mat_BrightPinkLeather : Substrate {
+Surface mat_BrightPinkLeather : Plastic {
   Kd : Constant {
     v { 0.7720000147819519, 0.17499999701976776, 0.2619999945163727 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -116,11 +103,9 @@ Surface mat_BrightPinkLeather : Substrate {
 Surface mat_Glass : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -130,14 +115,12 @@ Surface mat_Glass : Glass {
   }
 }
 
-Surface mat_DarkRubber : Substrate {
+Surface mat_DarkRubber : Plastic {
   Kd : Constant {
     v { 0.02500000037252903, 0.02500000037252903, 0.02500000037252903 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -248,7 +231,6 @@ Shape shape_7 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 20.0, 3.0, 3.0 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {
@@ -397,7 +379,6 @@ Shape shape_18 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 3.886280059814453, 3.772550106048584, 3.4313700199127197 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {
@@ -1313,7 +1294,6 @@ Shape shape_88 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 9.0, 9.0, 10.0 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {
@@ -1332,7 +1312,6 @@ Shape shape_89 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 9.0, 9.0, 10.0 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {
@@ -1348,7 +1327,6 @@ Shape shape_89 : Mesh {
 Env env : Spherical {
   emission : Constant {
     v { 0.30000001192092896, 0.30000001192092896, 0.30000001192092896 }
-    semantic { "illuminant" }
   }
   transform : SRT {
     rotate { 0, 1, 0, -90 }
