@@ -1,7 +1,7 @@
 target_settings = {
     'renderer': [
         'LuisaRender',
-        'PBRT-v4',
+        # 'PBRT-v4',
         'Mitsuba3',
     ],
     'backend': [
@@ -57,7 +57,7 @@ target_settings = {
     ],
     'spectrum': [
         'RGB',
-        'Spectral',
+        # 'Spectral',
     ],
     'sampler': [
         'Independent',
@@ -69,6 +69,7 @@ target_settings = {
         # 128,
         # 256,
         1024,
+        # 2048,
         # 4096,
         # 8192,
         # 16384,
@@ -191,37 +192,37 @@ renderer_settings = {
         'scene_file': {
             'scene_file_name': 'scene_v3.xml',
             'output_file': {
-                'regex': '<string name="filename" value="output\.exr" />',
-                'replace': '<string name="filename" value="{}.exr" />',
+                'regex': '<string name="filename" value="output\.exr"/>',
+                'replace': '<string name="filename" value="{}.exr"/>',
             },
             'resolution': [
                 {
-                    'regex': '<default name="resx" value="[0-9]*" />',
-                    'replace': '<default name="resx" value="{}" />',
+                    'regex': '<default name="resx" value="[0-9]*"/>',
+                    'replace': '<default name="resx" value="{}"/>',
                 },
                 {
-                    'regex': '<default name="resy" value="[0-9]*" />',
-                    'replace': '<default name="resy" value="{}" />',
+                    'regex': '<default name="resy" value="[0-9]*"/>',
+                    'replace': '<default name="resy" value="{}"/>',
                 },
             ],
             'max_depth': {
-                'regex': '<default name="max_depth" value="[0-9]*" />',
-                'replace': '<default name="max_depth" value="{}" />',
+                'regex': '<default name="max_depth" value="[0-9]*"/>',
+                'replace': '<default name="max_depth" value="{}"/>',
             },
             'rr_depth': {
-                'regex': '<default name="rr_depth" value="[0-9]*" />',
-                'replace': '<default name="rr_depth" value="{}" />',
+                'regex': '<default name="rr_depth" value="[0-9]*"/>',
+                'replace': '<default name="rr_depth" value="{}"/>',
             },
             'spp': {
-                'regex': '<default name="spp" value="[0-9]*" />',
-                'replace': '<default name="spp" value="{}" />',
+                'regex': '<default name="spp" value="[0-9]*"/>',
+                'replace': '<default name="spp" value="{}"/>',
             },
             'sampler': {
                 'name': {
                     'Independent': 'independent',
                 },
-                'regex': '<sampler type="[a-zA-Z]*" >',
-                'replace': '<sampler type="{}" >',
+                'regex': '<sampler type="[a-zA-Z]*">',
+                'replace': '<sampler type="{}">',
             },
             'spectrum': None,
             'integrator': {
@@ -229,8 +230,8 @@ renderer_settings = {
                     'WavePath': None,
                     'MegaPath': 'path',
                 },
-                'regex': '<default name="integrator" value="[a-zA-Z]*" />',
-                'replace': '<default name="integrator" value="{}" />',
+                'regex': '<default name="integrator" value="[a-zA-Z]*"/>',
+                'replace': '<default name="integrator" value="{}"/>',
             },
         },
         'results_regex': {

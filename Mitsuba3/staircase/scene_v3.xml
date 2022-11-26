@@ -22,7 +22,7 @@
             <integer name="height" value="$resy"/>
             <string name="file_format" value="openexr"/>
             <string name="pixel_format" value="rgb"/>
-			<rfilter type="box"/>
+            <rfilter type="box"/>
         </film>
     </sensor>
     <bsdf type="twosided" id="WoodFloorBSDF">
