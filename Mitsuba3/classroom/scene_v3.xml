@@ -22,9 +22,7 @@
 			<integer name="height" value="$resy" />
 			<string name="file_format" value="openexr" />
 			<string name="pixel_format" value="rgb" />
-			<rfilter type="box">
-				<float name="radius" value="0.5" />
-			</rfilter>
+			<rfilter type="box"/>
 		</film>
 	</sensor>
 	<bsdf type="twosided" id="WallsBSDF">
