@@ -828,26 +828,13 @@ Shape shape_52 : Mesh {
   }
 }
 
-Env dir : Directional {
-  emission : Constant {
-    v { 0.03183098882436752, 0.03183098882436752, 0.03183098882436752 }
-  }
-  angle { 2.0 }
-  direction { 2, 0.64, 0.8 }
-  scale { 12.566370614359172 }
-}
-
 Env sky : Spherical {
   emission : Image {
     file { "textures/spaichingen_hill_2k.exr" }
   }
-  transform : Matrix {
-    m { 0.0, 0.0, -1.0, 0.0,
-        0.0, 1.0, 0.0, 0.0,
-        1.0, 0.0, 0.0, 0.0,
-        0.0, 0.0, 0.0, 1.0 }
+  transform : SRT {
+    rotate { 0, 1, 0, -65 }
   }
-  scale { 0.3 }
 }
 
 Camera camera : Pinhole {
@@ -856,8 +843,8 @@ Camera camera : Pinhole {
   up { 0.0, 1.0, 0.0 }
   fov { 35.98339777135762 }
   spp { 128 }
-  filter : Gaussian {
-    radius { 1 }
+  filter : Box {
+    radius { 0.5 }
   }
   film : Color {
     resolution { 1920, 1080 }
@@ -929,9 +916,6 @@ render {
     @shape_51,
     @shape_52
   }
-  environment : Combined {
-    a { @dir }
-    b { @sky }
-  }
+  environment { @sky }
 }
 

@@ -313,8 +313,8 @@ Camera camera : Pinhole {
   up { 0.0, 1.0, 0.0 }
   fov { 20.11429322446647 }
   spp { 128 }
-  filter : Gaussian {
-    radius { 1 }
+  filter : Box {
+    radius { 0.5 }
   }
   film : Color {
     resolution { 1920, 1080 }
