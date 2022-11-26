@@ -279,6 +279,9 @@ Surface mat_WindowFrame : Metal {
   roughness : Constant {
     v { 0.31622776601683794 }
   }
+  Kd : Constant {
+    v { 0.471008, 0.471008, 0.471008 }
+  }
 }
 
 Surface mat_Bin1 : Matte {
@@ -1357,19 +1360,21 @@ Camera camera : Pinhole {
   front { 0.1512944996356964, 0.028307145461440086, -0.9880833625793457 }
   up { 0.0, 1.0, 0.0 }
   fov { 35.98339777135762 }
-  spp { 1024 }
+  spp { 2048 }
   filter : Box {
     radius { 0.5 }
   }
   film : Color {
     resolution { 1920, 1080 }
+    clamp { 16384 }
   }
   file { "output.exr" }
 }
 
 render {
   cameras { @camera }
-  spectrum : Hero {}
+  spectrum : sRGB {}
+  shadow_terminator { 0.001 }
   integrator : WavePath {
     sampler : Independent {}
     depth { 16 }
