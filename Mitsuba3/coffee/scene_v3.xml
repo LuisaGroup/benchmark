@@ -1,245 +1,249 @@
 <scene version="3.0.0">
-	<default name="integrator" value="path" />
-	<default name="spp" value="64" />
-	<default name="resx" value="800" />
-	<default name="resy" value="1000" />
-	<default name="max_depth" value="17" />
-	<default name="rr_depth" value="5" />
-	<integrator type="$integrator">
-		<integer name="max_depth" value="$max_depth" />
-		<integer name="rr_depth" value="$rr_depth" />
-	</integrator>
-	<sensor type="perspective">
-		<float name="fov" value="25" />
-		<transform name="to_world">
-			<matrix value="-0.999974 0.000285892 0.00726552 -0.00296004 -2.91046e-011 0.999227 -0.0393187 0.198303 -0.00727114 -0.0393177 -0.9992 0.828151 0 0 0 1" />
-		</transform>
-		<sampler type="independent">
-			<integer name="sample_count" value="$spp" />
-		</sampler>
-		<film type="hdrfilm">
-			<integer name="width" value="$resx" />
-			<integer name="height" value="$resy" />
-			<string name="file_format" value="openexr" />
-			<string name="pixel_format" value="rgb" />
-			<rfilter type="box">
-				<float name="radius" value="0.5" />
-			</rfilter>
-		</film>
-	</sensor>
-	<bsdf type="twosided" id="Plastic_OrangeBSDF">
-		<bsdf type="plastic">
-			<float name="int_ior" value="1.5" />
-			<float name="ext_ior" value="1" />
-			<boolean name="nonlinear" value="true" />
-			<rgb name="diffuse_reflectance" value="1, 0.378676, 0.0134734" />
-		</bsdf>
-	</bsdf>
-	<bsdf type="twosided" id="Plastic_BlackBSDF">
-		<bsdf type="roughplastic">
-			<float name="alpha" value="0.1" />
-			<string name="distribution" value="ggx" />
-			<float name="int_ior" value="1.5" />
-			<float name="ext_ior" value="1" />
-			<boolean name="nonlinear" value="true" />
-			<rgb name="diffuse_reflectance" value="0.00631, 0.00631, 0.00631" />
-		</bsdf>
-	</bsdf>
-	<bsdf type="dielectric" id="GlassBSDF">
-		<float name="int_ior" value="1.5" />
-		<float name="ext_ior" value="1" />
-	</bsdf>
-	<bsdf type="twosided" id="MetalBSDF">
-		<bsdf type="conductor">
-			<string name="material" value="none" />
-		</bsdf>
-	</bsdf>
-	<bsdf type="twosided" id="FloorBSDF">
-		<bsdf type="plastic">
-			<float name="int_ior" value="1.5" />
-			<float name="ext_ior" value="1" />
-			<boolean name="nonlinear" value="true" />
-			<rgb name="diffuse_reflectance" value="0.578596, 0.578596, 0.578596" />
-		</bsdf>
-	</bsdf>
-	<shape type="obj" id="Plastic_Black_0001">
-		<string name="filename" value="models/Mesh013.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0002">
-		<string name="filename" value="models/Mesh008.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Glass">
-		<string name="filename" value="models/Mesh010.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="GlassBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Orange_0001">
-		<string name="filename" value="models/Mesh009.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_OrangeBSDF" />
-	</shape>
-	<shape type="obj" id="Metal_0001">
-		<string name="filename" value="models/Mesh015.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="MetalBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Orange_0002">
-		<string name="filename" value="models/Mesh012.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_OrangeBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Orange_0003">
-		<string name="filename" value="models/Mesh016.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_OrangeBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0003">
-		<string name="filename" value="models/Mesh017.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0004">
-		<string name="filename" value="models/Mesh018.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0005">
-		<string name="filename" value="models/Mesh019.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0006">
-		<string name="filename" value="models/Mesh007.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Orange_0004">
-		<string name="filename" value="models/Mesh006.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_OrangeBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0007">
-		<string name="filename" value="models/Mesh005.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<boolean name="face_normals" value="true" />
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0008">
-		<string name="filename" value="models/Mesh003.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Metal_0002">
-		<string name="filename" value="models/Mesh002.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="MetalBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Orange_0005">
-		<string name="filename" value="models/Mesh001.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_OrangeBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0009">
-		<string name="filename" value="models/Mesh011.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Orange_0006">
-		<string name="filename" value="models/Mesh000.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_OrangeBSDF" />
-	</shape>
-	<shape type="obj" id="Plastic_Black_0010">
-		<string name="filename" value="models/Mesh014.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="Plastic_BlackBSDF" />
-	</shape>
-	<shape type="obj" id="Floor">
-		<string name="filename" value="models/Mesh004.obj" />
-		<transform name="to_world">
-			<matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1" />
-		</transform>
-		<ref id="FloorBSDF" />
-	</shape>
-	<shape type="rectangle">
-		<transform name="to_world">
-			<matrix value="0.0813859 -3.42425e-009 0.0783378 -0.277923 1.31768e-008 -0.224422 -1.25677e-008 0.225271 0.174532 1.85401e-008 -0.0365296 0.163724 0 0 0 1" />
-		</transform>
-		<bsdf type="twosided">
-			<bsdf type="diffuse">
-				<rgb name="reflectance" value="0, 0, 0" />
-			</bsdf>
-		</bsdf>
-		<emitter type="area">
-			<rgb name="radiance" value="2, 2, 2" />
-		</emitter>
-	</shape>
-	<shape type="rectangle">
-		<transform name="to_world">
-			<matrix value="-9.80906e-009 0.00227401 -0.0820026 0.322947 0.224423 1.56693e-016 -3.58473e-009 0.25176 -1.22092e-010 -0.182697 -0.00102068 0.046278 0 0 0 1" />
-		</transform>
-		<bsdf type="twosided">
-			<bsdf type="diffuse">
-				<rgb name="reflectance" value="0, 0, 0" />
-			</bsdf>
-		</bsdf>
-		<emitter type="area">
-			<rgb name="radiance" value="2, 2, 2" />
-		</emitter>
-	</shape>
-	<shape type="rectangle">
-		<transform name="to_world">
-			<matrix value="-0.230128 -6.99084e-016 1.59932e-008 0 -3.47484e-008 4.62982e-009 -0.105918 0.50385 0 -0.230128 -1.00592e-008 0.0372435 0 0 0 1" />
-		</transform>
-		<bsdf type="twosided">
-			<bsdf type="diffuse">
-				<rgb name="reflectance" value="0, 0, 0" />
-			</bsdf>
-		</bsdf>
-		<emitter type="area">
-			<rgb name="radiance" value="2, 2, 2" />
-		</emitter>
-	</shape>
+    <default name="integrator" value="path"/>
+    <default name="spp" value="64"/>
+    <default name="resx" value="800"/>
+    <default name="resy" value="1000"/>
+    <default name="max_depth" value="17"/>
+    <default name="rr_depth" value="5"/>
+    <integrator type="$integrator">
+        <integer name="max_depth" value="$max_depth"/>
+        <integer name="rr_depth" value="$rr_depth"/>
+    </integrator>
+    <sensor type="perspective">
+        <float name="fov" value="25"/>
+        <transform name="to_world">
+            <matrix value="-0.999974 0.000285892 0.00726552 -0.00296004 -2.91046e-011 0.999227 -0.0393187 0.198303 -0.00727114 -0.0393177 -0.9992 0.828151 0 0 0 1"/>
+        </transform>
+        <sampler type="independent">
+            <integer name="sample_count" value="$spp"/>
+        </sampler>
+        <film type="hdrfilm">
+            <integer name="width" value="$resx"/>
+            <integer name="height" value="$resy"/>
+            <string name="file_format" value="openexr"/>
+            <string name="pixel_format" value="rgb"/>
+            <rfilter type="box">
+                <float name="radius" value="0.5"/>
+            </rfilter>
+        </film>
+    </sensor>
+    <bsdf type="twosided" id="Plastic_OrangeBSDF">
+        <bsdf type="roughplastic">
+            <float name="int_ior" value="1.5"/>
+            <float name="ext_ior" value="1"/>
+            <boolean name="nonlinear" value="true"/>
+            <rgb name="diffuse_reflectance" value="1, 0.378676, 0.0134734"/>
+            <float name="alpha" value="0.0001"/>
+        </bsdf>
+    </bsdf>
+    <bsdf type="twosided" id="Plastic_BlackBSDF">
+        <bsdf type="roughplastic">
+            <float name="alpha" value="0.1"/>
+            <string name="distribution" value="ggx"/>
+            <float name="int_ior" value="1.5"/>
+            <float name="ext_ior" value="1"/>
+            <boolean name="nonlinear" value="true"/>
+            <rgb name="diffuse_reflectance" value="0.00631, 0.00631, 0.00631"/>
+        </bsdf>
+    </bsdf>
+    <bsdf type="roughdielectric" id="GlassBSDF">
+        <float name="int_ior" value="1.5"/>
+        <float name="ext_ior" value="1"/>
+        <float name="alpha" value="0.0001"/>
+    </bsdf>
+    <bsdf type="twosided" id="MetalBSDF">
+        <bsdf type="roughconductor">
+            <string name="material" value="none"/>
+            <float name="alpha" value="0.0001"/>
+        </bsdf>
+    </bsdf>
+    <bsdf type="twosided" id="FloorBSDF">
+        <bsdf type="roughplastic">
+            <float name="int_ior" value="1.5"/>
+            <float name="ext_ior" value="1"/>
+            <boolean name="nonlinear" value="true"/>
+            <rgb name="diffuse_reflectance" value="0.578596, 0.578596, 0.578596"/>
+            <float name="alpha" value="0.0001"/>
+        </bsdf>
+    </bsdf>
+    <shape type="obj" id="Plastic_Black_0001">
+        <string name="filename" value="models/Mesh013.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0002">
+        <string name="filename" value="models/Mesh008.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Glass">
+        <string name="filename" value="models/Mesh010.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="GlassBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Orange_0001">
+        <string name="filename" value="models/Mesh009.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_OrangeBSDF"/>
+    </shape>
+    <shape type="obj" id="Metal_0001">
+        <string name="filename" value="models/Mesh015.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="MetalBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Orange_0002">
+        <string name="filename" value="models/Mesh012.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_OrangeBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Orange_0003">
+        <string name="filename" value="models/Mesh016.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_OrangeBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0003">
+        <string name="filename" value="models/Mesh017.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0004">
+        <string name="filename" value="models/Mesh018.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0005">
+        <string name="filename" value="models/Mesh019.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0006">
+        <string name="filename" value="models/Mesh007.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Orange_0004">
+        <string name="filename" value="models/Mesh006.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_OrangeBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0007">
+        <string name="filename" value="models/Mesh005.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <boolean name="face_normals" value="true"/>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0008">
+        <string name="filename" value="models/Mesh003.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Metal_0002">
+        <string name="filename" value="models/Mesh002.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="MetalBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Orange_0005">
+        <string name="filename" value="models/Mesh001.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_OrangeBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0009">
+        <string name="filename" value="models/Mesh011.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Orange_0006">
+        <string name="filename" value="models/Mesh000.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_OrangeBSDF"/>
+    </shape>
+    <shape type="obj" id="Plastic_Black_0010">
+        <string name="filename" value="models/Mesh014.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="Plastic_BlackBSDF"/>
+    </shape>
+    <shape type="obj" id="Floor">
+        <string name="filename" value="models/Mesh004.obj"/>
+        <transform name="to_world">
+            <matrix value="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"/>
+        </transform>
+        <ref id="FloorBSDF"/>
+    </shape>
+    <shape type="rectangle">
+        <transform name="to_world">
+            <matrix value="0.0813859 -3.42425e-009 0.0783378 -0.277923 1.31768e-008 -0.224422 -1.25677e-008 0.225271 0.174532 1.85401e-008 -0.0365296 0.163724 0 0 0 1"/>
+        </transform>
+        <bsdf type="twosided">
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0, 0, 0"/>
+            </bsdf>
+        </bsdf>
+        <emitter type="area">
+            <rgb name="radiance" value="2, 2, 2"/>
+        </emitter>
+    </shape>
+    <shape type="rectangle">
+        <transform name="to_world">
+            <matrix value="-9.80906e-009 0.00227401 -0.0820026 0.322947 0.224423 1.56693e-016 -3.58473e-009 0.25176 -1.22092e-010 -0.182697 -0.00102068 0.046278 0 0 0 1"/>
+        </transform>
+        <bsdf type="twosided">
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0, 0, 0"/>
+            </bsdf>
+        </bsdf>
+        <emitter type="area">
+            <rgb name="radiance" value="2, 2, 2"/>
+        </emitter>
+    </shape>
+    <shape type="rectangle">
+        <transform name="to_world">
+            <matrix value="-0.230128 -6.99084e-016 1.59932e-008 0 -3.47484e-008 4.62982e-009 -0.105918 0.50385 0 -0.230128 -1.00592e-008 0.0372435 0 0 0 1"/>
+        </transform>
+        <bsdf type="twosided">
+            <bsdf type="diffuse">
+                <rgb name="reflectance" value="0, 0, 0"/>
+            </bsdf>
+        </bsdf>
+        <emitter type="area">
+            <rgb name="radiance" value="2, 2, 2"/>
+        </emitter>
+    </shape>
 </scene>
