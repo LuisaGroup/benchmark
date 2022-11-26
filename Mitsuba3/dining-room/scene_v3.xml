@@ -30,7 +30,7 @@
 	<bsdf type="twosided" id="WhitePlasticBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.1" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
@@ -86,7 +86,7 @@
 	<bsdf type="twosided" id="BlackPaintBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.2" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
@@ -101,7 +101,7 @@
 	<bsdf type="twosided" id="GoldBSDF">
 		<bsdf type="roughconductor">
 			<float name="alpha" value="0.1" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<string name="material" value="Au" />
 			<rgb name="specular_reflectance" value="1, 1, 1" />
 			<!-- <rgb name="eta" value="0.143119, 0.374957, 1.44248" />
@@ -111,7 +111,7 @@
 	<bsdf type="twosided" id="CeramicBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.01" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />
@@ -121,7 +121,7 @@
 	<bsdf type="twosided" id="RoughMetalBSDF">
 		<bsdf type="roughconductor">
 			<float name="alpha" value="0.1" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<rgb name="specular_reflectance" value="1, 1, 1" />
 			<string name="material" value="Al" />
 			<!-- <rgb name="eta" value="1.65746, 0.880369, 0.521229" />
@@ -131,7 +131,7 @@
 	<bsdf type="twosided" id="PaintedCeramicBSDF">
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.01" />
-			<string name="distribution" value="beckmann" />
+			<string name="distribution" value="ggx" />
 			<float name="int_ior" value="1.5" />
 			<float name="ext_ior" value="1" />
 			<boolean name="nonlinear" value="true" />

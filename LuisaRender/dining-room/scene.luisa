@@ -157,6 +157,7 @@ Shape shape_0 : Mesh {
   file { "models/Mesh013.obj" }
   surface { @mat_FrostedGlass }
   shadow_terminator { 1 }
+  intersection_offset { 0.5 }
 }
 
 Shape shape_1 : Mesh {
@@ -189,6 +190,7 @@ Shape shape_3 : Mesh {
   file { "models/Mesh023.obj" }
   surface { @mat_FrostedGlass }
   shadow_terminator { 1 }
+  intersection_offset { 0.5 }
 }
 
 Shape shape_4 : Mesh {
@@ -842,12 +844,13 @@ Camera camera : Pinhole {
   front { 0.013057953678071499, -0.06386303901672363, -0.9978732466697693 }
   up { 0.0, 1.0, 0.0 }
   fov { 35.98339777135762 }
-  spp { 128 }
+  spp { 2048 }
   filter : Box {
     radius { 0.5 }
   }
   film : Color {
     resolution { 1920, 1080 }
+    clamp { 1024 }
   }
   file { "output.exr" }
 }
@@ -855,11 +858,13 @@ Camera camera : Pinhole {
 render {
   cameras { @camera }
   spectrum : sRGB {}
+  shadow_terminator { 0.001 }
   integrator : WavePath {
     sampler : Independent {}
-    depth { 12 }
+    depth { 16 }
     rr_depth { 5 }
     rr_threshold { 0.95 }
+    display { true }
   }
   shapes {
     @shape_0,
