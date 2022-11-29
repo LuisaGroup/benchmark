@@ -6,7 +6,6 @@ Surface mat_Backdrop : Metal {
   }
   Kd : Constant {
     v { 0.578596, 0.578596, 0.578596 }
-    semantic { "albedo" }
   }
 }
 
@@ -17,18 +16,15 @@ Surface mat_Floor : Metal {
   }
   Kd : Constant {
     v { 0.578596, 0.578596, 0.578596 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_WaterAir : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.33 }
@@ -41,11 +37,9 @@ Surface mat_WaterAir : Glass {
 Surface mat_IceAir : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.31 }
@@ -58,11 +52,9 @@ Surface mat_IceAir : Glass {
 Surface mat_Glass : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -75,11 +67,9 @@ Surface mat_Glass : Glass {
 Surface mat_AirIce : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 0.763 }
@@ -305,7 +295,6 @@ Shape shape_16 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 15.915493965148926, 27.056339263916016, 31.83098793029785 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {
@@ -323,22 +312,25 @@ Camera camera : Pinhole {
   front { 0.003735453588888049, 0.015855638310313225, -0.9998673796653748 }
   up { 0.0, 1.0, 0.0 }
   fov { 20.11429322446647 }
-  spp { 128 }
-  filter : Gaussian {
-    radius { 1 }
+  spp { 2048 }
+  filter : Box {
+    radius { 0.5 }
   }
   film : Color {
     resolution { 1920, 1080 }
+    clamp { 16384 }
   }
   file { "output.exr" }
 }
 
 render {
   cameras { @camera }
-  spectrum : Hero {}
+  spectrum : sRGB {}
+  shadow_terminator { 0.001 }
+  intersection_offset { 0.06 }
   integrator : WavePath {
     sampler : Independent {}
-    depth { 12 }
+    depth { 16 }
     rr_depth { 5 }
     rr_threshold { 0.95 }
   }

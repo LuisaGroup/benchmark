@@ -7,7 +7,7 @@
 *.pbrt
 *.xml
 
-outputs/results.csv
+outputs/results-LR.csv
 outputs/pictures/*
 
 set_accel_kernel

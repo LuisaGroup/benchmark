@@ -1,12 +1,10 @@
 
-Surface mat_WhitePlastic : Substrate {
+Surface mat_WhitePlastic : Plastic {
   Kd : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -23,14 +21,12 @@ Surface mat_Chrome : Metal {
   }
 }
 
-Surface mat_BlackRubber : Substrate {
+Surface mat_BlackRubber : Plastic {
   Kd : Constant {
     v { 0.05000000074505806, 0.05000000074505806, 0.05000000074505806 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -43,14 +39,12 @@ Surface mat_BlackRubber : Substrate {
 Surface mat_Walls : Matte {
   Kd : Constant {
     v { 0.20000000298023224, 0.20000000298023224, 0.20000000298023224 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_Artwork : Matte {
   Kd : Image {
     file { "textures/picture3.jpg" }
-    semantic { "albedo" }
   }
 }
 
@@ -59,18 +53,15 @@ Surface mat_None : Null {}
 Surface mat_FloorTiles : Matte {
   Kd : Image {
     file { "textures/Tiles.jpg" }
-    semantic { "albedo" }
   }
 }
 
-Surface mat_BlackPaint : Substrate {
+Surface mat_BlackPaint : Plastic {
   Kd : Constant {
     v { 0.009999999776482582, 0.009999999776482582, 0.009999999776482582 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -83,7 +74,6 @@ Surface mat_BlackPaint : Substrate {
 Surface mat_WhiteMarble : Matte {
   Kd : Constant {
     v { 0.32503700256347656, 0.32503700256347656, 0.32503700256347656 }
-    semantic { "albedo" }
   }
 }
 
@@ -94,14 +84,12 @@ Surface mat_Gold : Metal {
   }
 }
 
-Surface mat_Ceramic : Substrate {
+Surface mat_Ceramic : Plastic {
   Kd : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -118,14 +106,12 @@ Surface mat_RoughMetal : Metal {
   }
 }
 
-Surface mat_PaintedCeramic : Substrate {
+Surface mat_PaintedCeramic : Plastic {
   Kd : Image {
     file { "textures/Teacup.png" }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -135,14 +121,12 @@ Surface mat_PaintedCeramic : Substrate {
   }
 }
 
-Surface mat_SkirtWood : Substrate {
+Surface mat_SkirtWood : Plastic {
   Kd : Constant {
     v { 0.6846150159835815, 0.6846150159835815, 0.6846150159835815 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -152,14 +136,12 @@ Surface mat_SkirtWood : Substrate {
   }
 }
 
-Surface mat_FrostedGlass : Substrate {
+Surface mat_FrostedGlass : Plastic {
   Kd : Constant {
     v { 0.7931100130081177, 0.7931100130081177, 0.7931100130081177 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -175,6 +157,7 @@ Shape shape_0 : Mesh {
   file { "models/Mesh013.obj" }
   surface { @mat_FrostedGlass }
   shadow_terminator { 1 }
+  intersection_offset { 0.5 }
 }
 
 Shape shape_1 : Mesh {
@@ -207,6 +190,7 @@ Shape shape_3 : Mesh {
   file { "models/Mesh023.obj" }
   surface { @mat_FrostedGlass }
   shadow_terminator { 1 }
+  intersection_offset { 0.5 }
 }
 
 Shape shape_4 : Mesh {
@@ -846,28 +830,13 @@ Shape shape_52 : Mesh {
   }
 }
 
-Env dir : Directional {
-  emission : Constant {
-    v { 0.03183098882436752, 0.03183098882436752, 0.03183098882436752 }
-    semantic { "illuminant" }
-  }
-  angle { 2.0 }
-  direction { 2, 0.64, 0.8 }
-  scale { 12.566370614359172 }
-}
-
 Env sky : Spherical {
   emission : Image {
-    file { "textures/sky.exr" }
-    semantic { "illuminant" }
+    file { "textures/spaichingen_hill_2k.exr" }
   }
-  transform : Matrix {
-    m { 0.0, 0.0, -1.0, 0.0,
-        0.0, 1.0, 0.0, 0.0,
-        1.0, 0.0, 0.0, 0.0,
-        0.0, 0.0, 0.0, 1.0 }
+  transform : SRT {
+    rotate { 0, 1, 0, -65 }
   }
-  scale { 0.3 }
 }
 
 Camera camera : Pinhole {
@@ -875,9 +844,9 @@ Camera camera : Pinhole {
   front { 0.013057953678071499, -0.06386303901672363, -0.9978732466697693 }
   up { 0.0, 1.0, 0.0 }
   fov { 35.98339777135762 }
-  spp { 128 }
-  filter : Gaussian {
-    radius { 1 }
+  spp { 2048 }
+  filter : Box {
+    radius { 0.5 }
   }
   film : Color {
     resolution { 1920, 1080 }
@@ -888,9 +857,10 @@ Camera camera : Pinhole {
 render {
   cameras { @camera }
   spectrum : sRGB {}
+  shadow_terminator { 0.001 }
   integrator : WavePath {
     sampler : Independent {}
-    depth { 12 }
+    depth { 16 }
     rr_depth { 5 }
     rr_threshold { 0.95 }
   }
@@ -949,9 +919,6 @@ render {
     @shape_51,
     @shape_52
   }
-  environment : Combined {
-    a { @dir }
-    b { @sky }
-  }
+  environment { @sky }
 }
 

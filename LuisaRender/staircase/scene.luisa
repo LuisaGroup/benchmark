@@ -1,12 +1,10 @@
 
-Surface mat_WoodFloor : Substrate {
+Surface mat_WoodFloor : Plastic {
   Kd : Image {
     file { "textures/WoodFloor.jpg" }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -16,14 +14,12 @@ Surface mat_WoodFloor : Substrate {
   }
 }
 
-Surface mat_WoodStairs : Substrate {
+Surface mat_WoodStairs : Plastic {
   Kd : Image {
     file { "textures/WoodPanel.jpg" }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -33,14 +29,12 @@ Surface mat_WoodStairs : Substrate {
   }
 }
 
-Surface mat_WoodChair : Substrate {
+Surface mat_WoodChair : Plastic {
   Kd : Image {
     file { "textures/Wood.jpg" }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -50,14 +44,12 @@ Surface mat_WoodChair : Substrate {
   }
 }
 
-Surface mat_WoodLamp : Substrate {
+Surface mat_WoodLamp : Plastic {
   Kd : Image {
     file { "textures/WoodChair.jpg" }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -70,7 +62,6 @@ Surface mat_WoodLamp : Substrate {
 Surface mat_Lampshade : Matte {
   Kd : Image {
     file { "textures/Fabric.jpg" }
-    semantic { "albedo" }
   }
 }
 
@@ -88,25 +79,21 @@ Surface mat_BrushedAluminium : Metal {
   }
   Kd : Constant {
     v { 0.578596, 0.578596, 0.578596 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_ChairSeat : Matte {
   Kd : Constant {
     v { 0.11764699965715408, 0.05490199849009514, 0.06666669994592667 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_Glass : Glass {
   Kr : Constant {
     v { 1, 1, 1 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -116,14 +103,12 @@ Surface mat_Glass : Glass {
   }
 }
 
-Surface mat_MagnoliaPaint : Substrate {
+Surface mat_MagnoliaPaint : Plastic {
   Kd : Constant {
     v { 0.5785959959030151, 0.5785959959030151, 0.5785959959030151 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -133,14 +118,12 @@ Surface mat_MagnoliaPaint : Substrate {
   }
 }
 
-Surface mat_WhitePaint : Substrate {
+Surface mat_WhitePaint : Plastic {
   Kd : Constant {
     v { 0.5785959959030151, 0.5785959959030151, 0.5785959959030151 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -153,28 +136,24 @@ Surface mat_WhitePaint : Substrate {
 Surface mat_Painting1 : Matte {
   Kd : Image {
     file { "textures/Painting1.jpg" }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_Painting2 : Matte {
   Kd : Image {
     file { "textures/Painting2.jpg" }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_Painting3 : Matte {
   Kd : Image {
     file { "textures/Painting3.jpg" }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_Black : Matte {
   Kd : Constant {
     v { 0.009999999776482582, 0.009999999776482582, 0.009999999776482582 }
-    semantic { "albedo" }
   }
 }
 
@@ -185,21 +164,18 @@ Surface mat_StainlessSteel : Metal {
   }
   Kd : Constant {
     v { 0.578596, 0.578596, 0.578596 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_Emission : Matte {
   Kd : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_Candles : Matte {
   Kd : Constant {
     v { 0.5785959959030151, 0.5785959959030151, 0.5785959959030151 }
-    semantic { "albedo" }
   }
 }
 
@@ -213,21 +189,18 @@ Surface mat_Gold : Metal {
 Surface mat_WhitePaint2 : Matte {
   Kd : Constant {
     v { 0.5785959959030151, 0.5785959959030151, 0.5785959959030151 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_White : Matte {
   Kd : Constant {
     v { 0.6915349960327148, 0.6915349960327148, 0.6915349960327148 }
-    semantic { "albedo" }
   }
 }
 
 Surface mat_WhitePlastic : Matte {
   Kd : Constant {
     v { 0.5785959959030151, 0.5785959959030151, 0.5785959959030151 }
-    semantic { "albedo" }
   }
 }
 
@@ -241,7 +214,6 @@ Surface mat_Copper : Metal {
 Surface mat_Wallpaper : Matte {
   Kd : Image {
     file { "textures/Wallpaper.jpg" }
-    semantic { "albedo" }
   }
 }
 
@@ -10314,8 +10286,7 @@ Shape shape_774 : Mesh {
   surface { @mat_Null }
   light : Diffuse {
     emission : Constant {
-      v { 21.5, 21.5, 21.5 }
-      semantic { "illuminant" }
+      v { 30, 30, 30 }
     }
   }
   transform : Matrix {
@@ -10328,31 +10299,29 @@ Shape shape_774 : Mesh {
   }
 }
 
-Filter filter_base {
-  radius { 1 }
-}
-
 Camera camera : Pinhole {
   position { 0.03242092579603195, 1.526729941368103, 4.881969451904297 }
   front { -0.007646017242223024, 0.04505503550171852, -0.998955249786377 }
   up { 0.0, 1.0, 0.0 }
   fov { 58.543979551022964 }
-  spp { 128 }
-  filter : Gaussian {
-    radius { 1 }
+  spp { 1024 }
+  filter : Box {
+    radius { 0.5 }
   }
   film : Color {
     resolution { 720, 1280 }
+    clamp { 16384 }
   }
   file { "output.exr" }
 }
 
 render {
   cameras { @camera }
-  spectrum : Hero {}
+  spectrum : sRGB {}
+  shadow_terminator { 0.001 }
   integrator : WavePath {
     sampler : Independent {}
-    depth { 12 }
+    depth { 16 }
     rr_depth { 5 }
     rr_threshold { 0.95 }
   }

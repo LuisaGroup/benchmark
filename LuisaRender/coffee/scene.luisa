@@ -1,26 +1,19 @@
 
-Surface mat_Plastic_Orange : Substrate {
+Surface mat_Plastic_Orange : Plastic {
   Kd : Constant {
-    v { 1.0, 0.25, 0.013 }
-    semantic { "albedo" }
-  }
-  Ks : Constant {
-    v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
+    v { 1.0, 0.37867626547813416, 0.013473397120833397 }
   }
   roughness : Constant {
-    v { 0.1 }
+    v { 0.001 }
   }
 }
 
-Surface mat_Plastic_Black : Substrate {
+Surface mat_Plastic_Black : Plastic {
   Kd : Constant {
     v { 0.006310000084340572, 0.006310000084340572, 0.006310000084340572 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.04, 0.04, 0.04 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -33,11 +26,9 @@ Surface mat_Plastic_Black : Substrate {
 Surface mat_Glass : Glass {
   Kr : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   Kt : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -50,18 +41,15 @@ Surface mat_Glass : Glass {
 Surface mat_Metal : Mirror {
   color : Constant {
     v { 1.0, 1.0, 1.0 }
-    semantic { "albedo" }
   }
 }
 
-Surface mat_Floor : Substrate {
+Surface mat_Floor : Plastic {
   Kd : Constant {
     v { 0.5785959959030151, 0.5785959959030151, 0.5785959959030151 }
-    semantic { "albedo" }
   }
   Ks : Constant {
     v { 0.15, 0.15, 0.15 }
-    semantic { "albedo" }
   }
   eta : Constant {
     v { 1.5 }
@@ -340,7 +328,6 @@ Shape shape_20 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 2.0, 2.0, 2.0 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {
@@ -359,7 +346,6 @@ Shape shape_21 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 2.0, 2.0, 2.0 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {
@@ -378,7 +364,6 @@ Shape shape_22 : Mesh {
   light : Diffuse {
     emission : Constant {
       v { 2.0, 2.0, 2.0 }
-      semantic { "illuminant" }
     }
   }
   transform : Matrix {
@@ -396,9 +381,9 @@ Camera camera : Pinhole {
   front { 0.0072655160911381245, -0.03931873291730881, -0.9992002844810486 }
   up { 0.0, 1.0, 0.0 }
   fov { 31.0 }
-  spp { 128 }
-  filter : Gaussian {
-    radius { 1 }
+  spp { 2048 }
+  filter : Box {
+    radius { 0.5 }
   }
   film : Color {
     resolution { 800, 1000 }
@@ -410,9 +395,10 @@ Camera camera : Pinhole {
 render {
   cameras { @camera }
   spectrum : sRGB {}
+  shadow_terminator { 0.00001 }
   integrator : WavePath {
     sampler : Independent {}
-    depth { 12 }
+    depth { 16 }
     rr_depth { 5 }
     rr_threshold { 0.95 }
   }
